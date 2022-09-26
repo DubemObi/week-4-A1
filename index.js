@@ -1,30 +1,28 @@
-function Person() {
-  return {
-    name: "Anthony",
-    gender: "male",
-    age: 14,
-    eat: function (food) {
+function Person(name, gender, age) {
+  //   return {
+  (this.name = name),
+    (this.gender = gender),
+    (this.age = age),
+    (this.eat = function (food) {
       console.log(`${this.name} is eating ${food}`);
-    },
-    run: function () {
+    }),
+    (this.run = function () {
       console.log(`${this.name} is running`);
-    },
-    read: function (bookName) {
+    }),
+    (this.read = function (bookName) {
       console.log(`${this.name} is reading ${bookName}`);
-    },
-    location: function () {
-      console.log(`${this.name} is currently in School`);
-    },
-  };
+    });
 }
 
 let person1 = new Person();
-// console.log(person1.age);
 // console.log(person1.run());
 
-function School() {
-  return Person.call(this);
+function School(name, gender, age) {
+  let allStudents = [];
+  Person.call(this, name, gender, age);
+  this.newStudents = allStudents.push(name);
+  this.students = allStudents;
 }
 
-let newSchool = new School();
-newSchool.location();
+let daySchool = new School("Peter", "male", 13);
+console.log(daySchool.students);
